@@ -69,6 +69,35 @@ mern-testing/
 - Cypress/Playwright: End-to-end testing framework
 - MongoDB Memory Server: In-memory MongoDB for testing
 
+## Testing Strategy & Debugging Techniques
+
+### Testing
+- **Unit Tests:** Located in `client/src/tests/unit/` and `server/tests/unit/`. Test individual components, utilities, and middleware in isolation.
+- **Integration Tests:** Located in `client/src/tests/integration/` and `server/tests/integration/`. Test how components and modules work together, including API endpoints and database operations.
+- **End-to-End Tests:** Located in `client/cypress/`. Test critical user flows and UI using Cypress.
+- **Coverage:** Run `npm run test:unit -- --coverage` in both client and server to generate coverage reports. Aim for at least 70% coverage.
+
+### Debugging
+- **Server:**
+  - Global error handler middleware in `server/src/middleware/errorHandler.js` logs errors and returns a generic message.
+  - Use `console.log` and `console.error` for server-side debugging.
+- **Client:**
+  - Error boundaries in `client/src/components/ErrorBoundary.jsx` catch and display UI errors.
+  - Use browser dev tools for inspecting React components and network requests.
+
+### How to Run Tests
+- **All tests:** `npm test` (in client or server)
+- **Unit tests:** `npm run test:unit`
+- **Integration tests:** `npm run test:integration`
+- **End-to-end tests:** `npm run test:e2e` (client only)
+
+### Coverage Reports
+- After running unit tests with coverage, view the generated HTML report in the `coverage/` directory.
+- Include screenshots of the coverage summary in your submission.
+
+### Example Debugging
+- See `ErrorBoundary.jsx` and `errorHandler.js` for examples of error handling and logging.
+
 ## Submission
 
 Your work will be automatically submitted when you push to your GitHub Classroom repository. Make sure to:
